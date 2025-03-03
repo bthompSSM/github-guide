@@ -1,5 +1,9 @@
 # Common Git Commands
 
+You can find a list of all Git commands [on the official Git documentation
+site](https://git-scm.com/docs).  Listed below are some of the most common Git commands you will use
+on a daily basis.
+
 ## [`git init`](https://git-scm.com/docs/git-init)
 
 Initializes a new Git repository in your project folder.

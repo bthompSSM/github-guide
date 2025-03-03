@@ -6,12 +6,8 @@ nav:
     - Installing Git: git-basics/installing-git.md
     - Common Git Commands: git-basics/common-git-commands.md
     - Configuring Git: git-basics/configuring-git.md
-    - Cloning a Repository: git-basics/cloning-a-repository.md
-    - Creating a Branch: git-basics/creating-a-branch.md
-    - Creating a New Commit: git-basics/creating-a-new-commit.md
-    - Changing a Previous Commit's Message: git-basics/changing-a-previous-commit-message.md
-    - Opening a Pull Request: git-basics/opening-a-pull-request.md
-    - Reverting a Commit: git-basics/reverting-a-commit.md
+    - Basic Git Workflow: git-basics/basic-git-workflow.md
+    - Pull Request Merging Guidelines: git-basics/pr-merging-guidelines.md
     - Git Best Practices: git-basics/git-best-practices.md
   - Git Advanced: git-advanced/index.md
   - Using GitHub: using-github/index.md

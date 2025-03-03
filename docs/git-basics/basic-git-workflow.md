@@ -104,6 +104,12 @@ tab.  Then, click the "New pull request" button.
 
 ![Opening a pull request](./img/opening-a-pull-request-1.jpg)
 
+Next, you will need to select the branch you want to merge into the main branch by changing the
+"compare" branch.  Then, click the "Create pull request" button.  As a side note, it's useful to
+know that when you push changes to a new branch, if you visit the repository's homepage, you will
+see a button that says "Compare & pull request".  Clicking this will take you to the same place as
+the steps above.
+
 ![Opening a pull request comparing changes](./img/opening-a-pull-request-2.jpg)
 
 This will open a new pull request with the changes you have pushed to the remote repository.  You
@@ -132,8 +138,4 @@ individually.  That way, everyone is on the same page.
 ## Merging a pull request
 
 Once you have received feedback and approved the pull request, you can merge it into the main branch.
-
-
-
-
-
+If you haven't already, read the [guidelines for merging pull requests](./pr-merging-guidelines.md).
