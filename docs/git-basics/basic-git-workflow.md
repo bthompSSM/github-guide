@@ -65,8 +65,7 @@ stage.  For example, to stage the `README.md` file, you can use the following co
 git add README.md
 ```
 
-It's useful to stage your commits in smaller chunks if you want to [write more meaningful commit
-messages](./writing-good-commit-messages.md), but it's not required.
+It's useful to stage your commits in smaller chunks, but it's not required.
 
 ## Committing changes
 
@@ -79,7 +78,7 @@ git commit -m "A meaningful commit message"
 
 This will create a new commit with the changes you have staged.  The commit message is a short
 description of the changes you made.  It's important to write a meaningful commit message so that
-you can easily understand the changes you made later.  See [Writing good commit messages](./writing-good-commit-messages.md)
+you can easily understand the changes you made later.  See [writing good commit messages](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 for more information.
 
 ## Pushing changes to the remote repository
@@ -130,7 +129,7 @@ This will send a notification and/or email to the developer you selected.  They 
 to review your changes and provide feedback.
 
 It's also not a bad idea to message the reviewer(s) on Microsoft Teams, or even better, you can
-[create a Teams channel](../misc/creating-a-teams-channel.md) for your team, create a tag for code
+create a Teams channel for your team, create a tag for code
 reviewers, and then mention the tag in the Teams channel with a link to the pull request.  This will
 alert all of the reviewers in a centralized place so that you don't have to message each one
 individually.  That way, everyone is on the same page.

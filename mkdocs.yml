@@ -1,7 +1,7 @@
-site_name: My Docs
+site_name: IHT Git & GitHub Guide
 nav:
-  - Home: index.md
-  - Git Basics:
+  - Table of Contents: index.md
+  - Getting Familiar with Git:
     - What is Git?: git-basics/what-is-git.md
     - Installing Git: git-basics/installing-git.md
     - Common Git Commands: git-basics/common-git-commands.md
@@ -9,8 +9,11 @@ nav:
     - Basic Git Workflow: git-basics/basic-git-workflow.md
     - Pull Request Merging Guidelines: git-basics/pr-merging-guidelines.md
     - Git Best Practices: git-basics/git-best-practices.md
-  - Git Advanced: git-advanced/index.md
-  - Using GitHub: using-github/index.md
+  - Using GitHub Effectively:
+    - GitHub Guides: using-github/index.md
+    - GitHub Access Control: using-github/github-access-control.md
+    - Creating a Repository: using-github/creating-a-repository.md
+    - Creating a Pull Request Template: using-github/creating-a-pull-request-template.md
 theme:
   name: material
   palette:

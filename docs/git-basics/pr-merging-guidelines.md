@@ -27,7 +27,7 @@ Here are some examples of commit messages that follow the conventional commits s
 
 ### With scope
 
-```
+```text
 feat(feature-name): add feature description
 
 - Add feature description
@@ -39,7 +39,7 @@ feat(feature-name): add feature description
 
 ### Without scope
 
-```
+```text
 feat: add feature description
 
 - Add feature description
@@ -48,7 +48,7 @@ feat: add feature description
 
 ### With issue number
 
-```
+```text
 feat: add feature description
 
 - Add feature description
@@ -62,7 +62,7 @@ Closes #123
 
 ### Commit with subject only
 
-```
+```text
 feat: add feature description
 ```
 
