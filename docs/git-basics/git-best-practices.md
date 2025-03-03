@@ -55,8 +55,9 @@ how to write better commit messages.
 - Create feature branches for new work (e.g., `feature/add-login-page`), bug fixes (e.g.,
   `fix/bugs-123`), or experiments.  Name them descriptively so that others (and your future self)
   can understand the purpose of the branch at a glance.
-- Use a branching strategy like Gitflow or GitHub Flow to manage branches.  See [Git Branching
-  Strategies](./git-branching-strategies.md) for more information.
+- Use a branching strategy like
+  [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) or [GitHub
+  Flow](https://docs.github.com/en/get-started/quickstart/github-flow) to manage branches.
 - Delete branches after merging to keep the repository clean (`git branch -d <branch-name>`).  You
   can also delete branches in the GitHub web interface.
 
@@ -68,8 +69,7 @@ how to write better commit messages.
 - Resolve merge conflicts promptly and test thoroughly after merging.
 - Merge branches back into the `main` (or `master`) branch regularly to keep the branch history
   clean and up to date.
-- Use the squash merge option when merging branches to keep the commit history clean.  See [Git
-  Branching Strategies](./git-branching-strategies.md) for more information.
+- Use the squash merge option when merging branches to keep the commit history clean.
 
 ## Leverage `.gitignore`
 
@@ -102,8 +102,7 @@ temp/*
 - Test your changes locally before submitting a PR.
 - Keep PRs small and focused (e.g., one feature or bug fix).
 - Write a detailed PR description that includes the changes made and the rationale behind them.
-- Use the squash merge option when merging branches to keep the commit history clean.  See [Git
-  Branching Strategies](./git-branching-strategies.md) for more information.
+- Use the squash merge option when merging branches to keep the commit history clean.
 
 ## Tag releases
 

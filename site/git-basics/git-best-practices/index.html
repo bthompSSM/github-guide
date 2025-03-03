@@ -1,0 +1,1038 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../pr-merging-guidelines/">
+      
+      
+        <link rel="next" href="../../using-github/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>Git Best Practices - IHT Git & GitHub Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#git-best-practices" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="IHT Git &amp; GitHub Guide" class="md-header__button md-logo" aria-label="IHT Git & GitHub Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            IHT Git & GitHub Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git Best Practices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="IHT Git &amp; GitHub Guide" class="md-nav__button md-logo" aria-label="IHT Git & GitHub Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    IHT Git & GitHub Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Table of Contents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Familiar with Git
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Familiar with Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-is-git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    What is Git?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installing-git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common-git-commands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Git Commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuring-git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Configuring Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-git-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Git Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pr-merging-guidelines/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pull Request Merging Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Git Best Practices
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Git Best Practices
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commit-early-and-often" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit early and often
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-branches-strategically" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use branches strategically
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-and-merge-regularly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull and merge regularly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leverage-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leverage .gitignore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-code-before-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review code before merging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag releases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-and-sync-with-remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backup and sync with remotes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-git-tools-and-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Git tools and aliases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-history-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keep history clean
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-your-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document your workflow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Using GitHub Effectively
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Using GitHub Effectively
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-github/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Guides
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-github/github-access-control/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GitHub Access Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-github/creating-a-repository/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../using-github/creating-a-pull-request-template/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating a Pull Request Template
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commit-early-and-often" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commit early and often
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-branches-strategically" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use branches strategically
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-and-merge-regularly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pull and merge regularly
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leverage-gitignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leverage .gitignore
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-code-before-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review code before merging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag releases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup-and-sync-with-remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backup and sync with remotes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-git-tools-and-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Git tools and aliases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-history-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      Keep history clean
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-your-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Document your workflow
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="git-best-practices">Git Best Practices</h1>
+<p>Here's the rundown of some of widely recommended practices for using Git based on general expertise
+and insights from the developer community.</p>
+<ol>
+<li>Commit early and often (with meaningful messages).</li>
+<li>Use branches strategically.</li>
+<li>Pull and merge regularly.</li>
+<li>Leverage <code>.gitignore</code>.</li>
+<li>Review code before merging.</li>
+<li>Tag releases</li>
+<li>Backup and sync with remotes.</li>
+<li>Use Git tools and aliases.</li>
+<li>Keep history clean.</li>
+<li>Document your workflow.</li>
+</ol>
+<h2 id="commit-early-and-often">Commit early and often</h2>
+<ul>
+<li>Make small, focused commits that address one logical change at a time (e.g., fixing a bug, adding
+  a feature, refactoring code, etc.)</li>
+<li>Write clear and concise commit messages that describe the changes made.</li>
+<li>Use the present tense in the commit message (e.g., "Add feature X" instead of "Added feature X").</li>
+<li>Use the imperative mood in the commit message (e.g., "Fix bug" instead of "Fixed bug").</li>
+</ul>
+<p>A common format is:</p>
+<pre><code class="language-text">&lt;type&gt;(&lt;scope (optional)&gt;): &lt;short  summary (50 chars or less)&gt;
+&lt;blank line&gt;
+&lt;detailed explanation (wrap at 72 characters), if needed&gt;
+</code></pre>
+<p>Examples:</p>
+<pre><code class="language-text">feat(ui): add new button to toggle dark mode
+</code></pre>
+<pre><code class="language-text">fix(api): fix bug in user authentication
+</code></pre>
+<pre><code class="language-text">refactor(auth): improve user authentication code
+
+Refactored user authentication code to use a more secure method.
+</code></pre>
+<p>See <a href="https://www.conventionalcommits.org/en/v1.0.0/#summary">Writing good commit messages</a> to learn
+how to write better commit messages.</p>
+<h2 id="use-branches-strategically">Use branches strategically</h2>
+<ul>
+<li>Keep the <code>main</code> (or <code>master</code>) branch stable and production-ready.  Avoid committing directly to it.</li>
+<li>Create feature branches for new work (e.g., <code>feature/add-login-page</code>), bug fixes (e.g.,
+  <code>fix/bugs-123</code>), or experiments.  Name them descriptively so that others (and your future self)
+  can understand the purpose of the branch at a glance.</li>
+<li>Use a branching strategy like
+  <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">Gitflow</a> or <a href="https://docs.github.com/en/get-started/quickstart/github-flow">GitHub
+  Flow</a> to manage branches.</li>
+<li>Delete branches after merging to keep the repository clean (<code>git branch -d &lt;branch-name&gt;</code>).  You
+  can also delete branches in the GitHub web interface.</li>
+</ul>
+<h2 id="pull-and-merge-regularly">Pull and merge regularly</h2>
+<ul>
+<li>Pull updates from the remote repository (<code>git pull</code>) to your local branch regularly to avoid merge conflicts.</li>
+<li>Use <code>git rebase</code> to keep a cleaner history when working on your branch, but be cautious if others
+  are collaborating on the same branch since rebasing rewrites the commit history.</li>
+<li>Resolve merge conflicts promptly and test thoroughly after merging.</li>
+<li>Merge branches back into the <code>main</code> (or <code>master</code>) branch regularly to keep the branch history
+  clean and up to date.</li>
+<li>Use the squash merge option when merging branches to keep the commit history clean.</li>
+</ul>
+<h2 id="leverage-gitignore">Leverage <code>.gitignore</code></h2>
+<ul>
+<li>Exclude files that shouldn't be tracked (e.g., build artifacts, local config files, IDE settings,
+  logs).  Use a <code>.gitignore</code> file trailored to your project.  There are templates available online,
+  and GitHub offers a wide variety of templates for different languages and frameworks when you
+  create a new repository.</li>
+<li>Use the <code>git add -f</code> command to force add files that are ignored by <code>.gitignore</code>.</li>
+<li>Example <code>.gitignore</code>:</li>
+</ul>
+<pre><code class="language-text"># Ignore all files in the build directory
+build/
+
+# Ignore all logs
+*.log
+
+# Igore node modules
+node_modules/
+
+# Ignore all files in the temp directory
+temp/*
+</code></pre>
+<h2 id="review-code-before-merging">Review code before merging</h2>
+<ul>
+<li>Use GitHub pull requests (PRs).  This ensures code is reviewed by peers.</li>
+<li>Use branch protection rules to enforce code reviews and prevent direct merges into <code>main</code> (or
+  <code>master</code>).</li>
+<li>Test your changes locally before submitting a PR.</li>
+<li>Keep PRs small and focused (e.g., one feature or bug fix).</li>
+<li>Write a detailed PR description that includes the changes made and the rationale behind them.</li>
+<li>Use the squash merge option when merging branches to keep the commit history clean.</li>
+</ul>
+<h2 id="tag-releases">Tag releases</h2>
+<ul>
+<li>Use annotated tags for releases or significant milestones (<code>git tag -a v1.0.0 -m "Release
+  1.0.0"</code>).  This helps track stable versions for your project.</li>
+<li>Push tags to the remote repository (<code>git push origin v1.0.0</code>).</li>
+<li>Use the GitHub web interface to create releases from tags.  For more advanced users, <a href="https://docs.github.com/en/repositories/releasing-projects-on-github/automating-releases-with-github-actions">automate the
+  release process</a>.</li>
+</ul>
+<h2 id="backup-and-sync-with-remotes">Backup and sync with remotes</h2>
+<ul>
+<li>Regularly push your local branch to the remote repository (<code>git push origin &lt;branch-name&gt;</code>).  This
+  acts as a backup and enables collaboration.</li>
+<li>Avoid force-pushing (<code>git push --force</code>) to the remote repository unless absolutely necessary, as
+  it overwrites history and can disrupt others.  You can prevent force-pushes with a branch
+  protection rule or a pre-receive hook.</li>
+<li>Regularly pull updates from the remote repository (<code>git pull</code>).</li>
+</ul>
+<h2 id="use-git-tools-and-aliases">Use Git tools and aliases</h2>
+<ul>
+<li>Learn commands like <code>git log</code>, <code>git blame</code>, and <code>git diff</code> to understand changes.</li>
+<li>Set up aliases for frequent commands in your <code>.gitconfig</code> file.  Example:</li>
+</ul>
+<pre><code class="language-text">[alias]
+  co = checkout
+  cm = commit
+  st = status
+</code></pre>
+<ul>
+<li>Use <code>git stash</code> to temporarily save uncommitted changes when switching branches.</li>
+<li>Familiarize yourself with <code>git reset</code>, <code>git revert</code>, and <code>git reflog</code>, to recover from errors.</li>
+<li>Use <code>git bisect</code> to find the commit that introduced a bug.</li>
+<li>Use <code>git cherry-pick</code> to apply specific commits from one branch to another.</li>
+<li>Use <code>git rebase</code> to keep a cleaner history when working on your branch.</li>
+</ul>
+<h2 id="keep-history-clean">Keep history clean</h2>
+<ul>
+<li>Squash unnecessary commits before merging  (<code>git rebase -i</code>) to maintain a readable history.</li>
+<li>Avoid committing sensitive data (e.g., API keys, passwords, etc.) in the repository.  Use
+  environment variables or a secrets manager instead.  If it happens, use <code>git filter-branch</code> to
+  remove the sensitive data.</li>
+</ul>
+<h2 id="document-your-workflow">Document your workflow</h2>
+<ul>
+<li>Agree on a team workflow (e.g., Git Flow) and document it in a <code>README.md</code> or wiki.</li>
+<li>Include setup instructions, branching rules, and contribution guidelines.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
